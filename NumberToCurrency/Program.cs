@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +13,21 @@ namespace NumberToCurrency
         {
             Console.WriteLine("Enter the number");
             string number = Console.ReadLine();
-            string Converteddata = Numbertowords.ConvertAmount(number);
-            Console.WriteLine("converted data is {0}", Converteddata);
-            Console.ReadLine();
-
+            int ContNum;
+            bool IsNum = int.TryParse(number,out ContNum);
+            if (IsNum)
+            {                
+                string Converteddata = Numbertowords.ConvertAmount(ContNum);
+                Console.WriteLine("Converted Data : {0}", Converteddata);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Please enter correct number");
+                Console.ReadLine();
+            } 
         }
-
-           }
+    }
 
     public class Numbertowords
     {
@@ -29,32 +38,33 @@ namespace NumberToCurrency
         private static String[] tens = { "", "", "Twenty", "Thirty", "Forty",
     "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
 
-        public static string ConvertAmount(string Number)
+        public static string ConvertAmount(int Number)
         {
             string words = null;
-            Int64 Numt = int.Parse(Number);
-             words = convert(Numt);
+            words = convert(Number);
             return words;
        }
 
         public static string convert(Int64 number)
         {
-            string data = null;
-            if(number < 20)
+            if (number < 20)
             {
-                return  units[number];
+                return units[number];
             }
             if (number < 100)
             {
-                return tens[number / 10] + ((number % 10 > 0)? " " + convert(number % 10) : " ");
-                
+                return tens[number / 10] + ((number % 10 > 0) ? " " + convert(number % 10) : " ");
             }
             if (number < 1000)
             {
                 return units[number / 100] + " Hunderd" + ((number % 100 > 0) ? " " + convert(number % 100) : " ");
             }
+            if (number < 100000)
+            {
+                return convert(number / 1000) + " Thousand" + ((number % 1000 > 0) ? " " + convert(number % 1000) : " ");
+            }
 
-            return convert(number / 1000) + " Thousand" + ((number % 1000> 0) ? " " + convert(number % 1000) : " ");
+            return convert(number / 100000) + " Lakh" + ((number % 100000 > 0) ? " " + convert(number % 100000) : " ");
         }
     }
 }
