@@ -1,0 +1,7 @@
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\bin\Debug\NumberToCurrency.exe.config
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\bin\Debug\NumberToCurrency.exe
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\bin\Debug\NumberToCurrency.pdb
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\obj\Debug\NumberToCurrency.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\obj\Debug\NumberToCurrency.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\obj\Debug\NumberToCurrency.exe
+C:\Users\Admin\source\repos\NumberToCurrency\NumberToCurrency\obj\Debug\NumberToCurrency.pdb
